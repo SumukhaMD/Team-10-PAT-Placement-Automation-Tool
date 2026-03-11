@@ -12,7 +12,7 @@ things to be done:
 
 
 to run:
-1. cd pat-react-dashboard
+1. cd Dashboard
 2. npm run dev
 
 stuff to ignore:
