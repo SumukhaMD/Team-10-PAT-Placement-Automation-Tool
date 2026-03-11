@@ -1,0 +1,43 @@
+{
+  "metrics": {
+    "placementPercentage": {
+      "value": 84.2,
+      "trend": 2.4
+    },
+    "avgCtc": {
+      "value": 14.5,
+      "trend": 1.2
+    },
+    "highestCtc": {
+      "value": 54.0,
+      "company": "TechCorp (Software Dev)"
+    },
+    "companiesVisited": {
+      "value": 145,
+      "target": 180
+    },
+    "offersMade": {
+      "value": 892,
+      "students": 420
+    },
+    "unplacedStudents": {
+      "value": 74,
+      "eligible": 500
+    }
+  },
+  "progression": {
+    "accepted": 810,
+    "pending": 82,
+    "chartData": {
+      "labels": ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8", "W9"],
+      "data": [12, 35, 25, 60, 84, 45, 30, 15, 10]
+    }
+  },
+  "recentOffers": [
+    { "name": "Aarav Sharma", "company": "TechCorp", "role": "SDE I", "ctc": "54.0L", "time": "2m ago", "color": "from-indigo-500/20 to-purple-500/20", "initial": "T", "ctcColor": "text-accent-purple" },
+    { "name": "Priya Patel", "company": "DataSys", "role": "Data Analyst", "ctc": "18.5L", "time": "15m ago", "color": "from-blue-500/20 to-cyan-500/20", "initial": "D", "ctcColor": "text-accent-amber" },
+    { "name": "Rohan Gupta", "company": "FinServe", "role": "Quant", "ctc": "22.0L", "time": "1h ago", "color": "from-emerald-500/20 to-teal-500/20", "initial": "F", "ctcColor": "text-text-main" },
+    { "name": "Neha Singh", "company": "CloudNet", "role": "Cloud Eng", "ctc": "14.0L", "time": "2h ago", "color": "from-orange-500/20 to-red-500/20", "initial": "C", "ctcColor": "text-text-main" },
+    { "name": "Vikram Reddy", "company": "TechCorp", "role": "SDE I", "ctc": "16.5L", "time": "3h ago", "color": "from-indigo-500/20 to-purple-500/20", "initial": "T", "ctcColor": "text-text-main" }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "sectorBreakdown": {
+    "labels": ["Software", "Consulting", "Core", "Finance"],
+    "data": [190, 80, 31, 29],
+    "totalCompanies": 14
+  },
+  "topRecruiters": [
+    { "init": "G", "name": "Google", "sector": "Software", "hires": 42, "ctc": "64.5 LPA", "ctcColor": "text-accent-purple" },
+    { "init": "M", "name": "Microsoft", "sector": "Software", "hires": 38, "ctc": "45.0 LPA", "ctcColor": "text-accent-purple" },
+    { "init": "A", "name": "Amazon", "sector": "Software", "hires": 32, "ctc": "42.0 LPA", "ctcColor": "text-accent-purple" },
+    { "init": "T", "name": "TCS", "sector": "Consulting", "hires": 30, "ctc": "8.0 LPA", "ctcColor": "text-text-main" },
+    { "init": "I", "name": "Infosys", "sector": "Consulting", "hires": 28, "ctc": "8.5 LPA", "ctcColor": "text-text-main" },
+    { "init": "W", "name": "Wipro", "sector": "Software", "hires": 25, "ctc": "9.0 LPA", "ctcColor": "text-text-main" },
+    { "init": "A", "name": "Accenture", "sector": "Consulting", "hires": 22, "ctc": "12.0 LPA", "ctcColor": "text-text-main" },
+    { "init": "O", "name": "Oracle", "sector": "Software", "hires": 20, "ctc": "35.0 LPA", "ctcColor": "text-accent-purple" },
+    { "init": "C", "name": "Cisco", "sector": "Software", "hires": 18, "ctc": "24.0 LPA", "ctcColor": "text-text-main" },
+    { "init": "L", "name": "L&T Construction", "sector": "Core", "hires": 17, "ctc": "10.5 LPA", "ctcColor": "text-text-main" },
+    { "init": "J", "name": "JP Morgan", "sector": "Finance", "hires": 16, "ctc": "28.0 LPA", "ctcColor": "text-accent-purple" },
+    { "init": "N", "name": "Nvidia", "sector": "Software", "hires": 15, "ctc": "38.0 LPA", "ctcColor": "text-accent-purple" },
+    { "init": "T", "name": "Tata Steel", "sector": "Core", "hires": 14, "ctc": "9.8 LPA", "ctcColor": "text-text-main" },
+    { "init": "G", "name": "Goldman Sachs", "sector": "Finance", "hires": 13, "ctc": "32.0 LPA", "ctcColor": "text-accent-purple" }
+  ],
+  "companyPerformance": [
+    { "name": "Google", "hiresY1": 25, "hiresY2": 30, "hiresY3": 35, "hiresY4": 38, "hiresY5": 42, "trendPoints": "M0,20 L16,18 L32,15 L48,12 L64,8 L80,4", "trendPointX": 80, "trendPointY": 4, "trendColor": "#00F0FF" },
+    { "name": "Microsoft", "hiresY1": 20, "hiresY2": 24, "hiresY3": 28, "hiresY4": 32, "hiresY5": 38, "trendPoints": "M0,22 L16,20 L32,16 L48,14 L64,10 L80,6", "trendPointX": 80, "trendPointY": 6, "trendColor": "#00F0FF" },
+    { "name": "Amazon", "hiresY1": 22, "hiresY2": 25, "hiresY3": 27, "hiresY4": 30, "hiresY5": 32, "trendPoints": "M0,18 L16,15 L32,12 L48,10 L64,8 L80,5", "trendPointX": 80, "trendPointY": 5, "trendColor": "#00F0FF" },
+    { "name": "TCS", "hiresY1": 40, "hiresY2": 38, "hiresY3": 35, "hiresY4": 32, "hiresY5": 30, "trendPoints": "M0,8 L16,10 L32,12 L48,15 L64,18 L80,20", "trendPointX": 80, "trendPointY": 20, "trendColor": "#FFB000" },
+    { "name": "Infosys", "hiresY1": 35, "hiresY2": 33, "hiresY3": 30, "hiresY4": 29, "hiresY5": 28, "trendPoints": "M0,10 L16,12 L32,14 L48,15 L64,16 L80,18", "trendPointX": 80, "trendPointY": 18, "trendColor": "#FFB000" },
+    { "name": "Wipro", "hiresY1": 28, "hiresY2": 26, "hiresY3": 25, "hiresY4": 24, "hiresY5": 25, "trendPoints": "M0,15 L16,16 L32,18 L48,19 L64,18 L80,16", "trendPointX": 80, "trendPointY": 16, "trendColor": "#00F0FF" },
+    { "name": "Accenture", "hiresY1": 30, "hiresY2": 28, "hiresY3": 26, "hiresY4": 24, "hiresY5": 22, "trendPoints": "M0,12 L16,14 L32,16 L48,18 L64,20 L80,22", "trendPointX": 80, "trendPointY": 22, "trendColor": "#FFB000" },
+    { "name": "Oracle", "hiresY1": 15, "hiresY2": 16, "hiresY3": 18, "hiresY4": 19, "hiresY5": 20, "trendPoints": "M0,20 L16,18 L32,16 L48,14 L64,12 L80,10", "trendPointX": 80, "trendPointY": 10, "trendColor": "#00F0FF" },
+    { "name": "Cisco", "hiresY1": 12, "hiresY2": 14, "hiresY3": 15, "hiresY4": 16, "hiresY5": 18, "trendPoints": "M0,22 L16,20 L32,18 L48,16 L64,14 L80,12", "trendPointX": 80, "trendPointY": 12, "trendColor": "#00F0FF" },
+    { "name": "L&T Construction", "hiresY1": 10, "hiresY2": 12, "hiresY3": 14, "hiresY4": 15, "hiresY5": 17, "trendPoints": "M0,22 L16,20 L32,16 L48,14 L64,12 L80,8", "trendPointX": 80, "trendPointY": 8, "trendColor": "#00F0FF" },
+    { "name": "JP Morgan", "hiresY1": 8, "hiresY2": 10, "hiresY3": 12, "hiresY4": 14, "hiresY5": 16, "trendPoints": "M0,20 L16,18 L32,15 L48,13 L64,10 L80,8", "trendPointX": 80, "trendPointY": 8, "trendColor": "#00F0FF" },
+    { "name": "Nvidia", "hiresY1": 5, "hiresY2": 7, "hiresY3": 9, "hiresY4": 12, "hiresY5": 15, "trendPoints": "M0,24 L16,22 L32,20 L48,16 L64,12 L80,8", "trendPointX": 80, "trendPointY": 8, "trendColor": "#00F0FF" },
+    { "name": "Tata Steel", "hiresY1": 18, "hiresY2": 16, "hiresY3": 15, "hiresY4": 15, "hiresY5": 14, "trendPoints": "M0,8 L16,12 L32,14 L48,14 L64,16 L80,18", "trendPointX": 80, "trendPointY": 18, "trendColor": "#FFB000" },
+    { "name": "Goldman Sachs", "hiresY1": 5, "hiresY2": 8, "hiresY3": 10, "hiresY4": 12, "hiresY5": 13, "trendPoints": "M0,22 L16,18 L32,15 L48,12 L64,10 L80,8", "trendPointX": 80, "trendPointY": 8, "trendColor": "#00F0FF" }
+  ]
+}
