@@ -22,5 +22,5 @@ jobs:
 
       - name: Verify environment
         run: |
-          echo "CI pipeline is working"
+          echo "CI pipeline working"
           java -version
