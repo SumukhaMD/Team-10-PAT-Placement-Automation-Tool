@@ -20,4 +20,17 @@ public class PlacementAnalyticsService {
     public PlacementAnalytics saveData(PlacementAnalytics data) {
         return repository.save(data);
     }
+
+    public PlacementStatsDTO getStats() {
+    
+        PlacementStatsDTO dto = new PlacementStatsDTO();
+    
+        dto.setTotalPlaced(repository.getTotalPlacedStudents());
+        dto.setAveragePackage(repository.getAveragePackage());
+        dto.setHighestPackage(repository.getHighestPackage());
+        dto.setPlacementPercentage(repository.getPlacementPercentage());
+    
+        return dto;
+    }
+
 }
