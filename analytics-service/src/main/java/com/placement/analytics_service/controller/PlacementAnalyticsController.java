@@ -23,4 +23,10 @@ public class PlacementAnalyticsController {
     public PlacementAnalytics addData(@RequestBody PlacementAnalytics data) {
         return service.saveData(data);
     }
+
+    @GetMapping("/stats")
+    public PlacementStatsDTO getStats() {
+        return service.getStats();
+    }
+
 }
