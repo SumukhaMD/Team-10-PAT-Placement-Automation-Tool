@@ -1,0 +1,9 @@
+target/
+build/
+.gradle/
+.idea/
+*.class
+*.jar
+*.log
+.env
+uploads/
