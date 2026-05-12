@@ -3,8 +3,8 @@ spring:
     name: auth-service
   datasource:
     url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/placeit_auth?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-    username: ${MYSQL_USER:root}
-    password: ${MYSQL_PASSWORD:sumu123}
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
@@ -17,8 +17,8 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: ${GMAIL_USERNAME:sumukhasumukhaacharya@gmail.com}
-    password: ${GMAIL_PASSWORD:jiqozibjkptxtkab}
+    username: ${GMAIL_USERNAME}
+    password: ${GMAIL_PASSWORD}
     properties:
       mail:
         smtp:
@@ -51,4 +51,4 @@ jwt:
 
 gmail:
   smtp:
-    from: ${GMAIL_USERNAME:sumukhasumukhaacharya@gmail.com}
+    from: ${GMAIL_USERNAME}
