@@ -1,0 +1,42 @@
+# Copy this file to docker-compose.override.yml (gitignored) and fill in your real values.
+# docker-compose.override.yml is auto-merged by Docker Compose with docker-compose.yml.
+
+version: '3.9'
+
+services:
+  auth-service:
+    environment:
+      MYSQL_PASSWORD: YOUR_MYSQL_ROOT_PASSWORD
+      JWT_SECRET: YOUR_JWT_SECRET_MIN_256_BITS
+      GMAIL_USERNAME: YOUR_GMAIL_ADDRESS
+      GMAIL_PASSWORD: YOUR_GMAIL_APP_PASSWORD   # Use a Gmail App Password, not your real password
+
+  notification-service:
+    environment:
+      MYSQL_PASSWORD: YOUR_MYSQL_ROOT_PASSWORD
+      GMAIL_USERNAME: YOUR_GMAIL_ADDRESS
+      GMAIL_PASSWORD: YOUR_GMAIL_APP_PASSWORD
+
+  api-gateway:
+    environment:
+      JWT_SECRET: YOUR_JWT_SECRET_MIN_256_BITS
+
+  mysql-auth:
+    environment:
+      MYSQL_ROOT_PASSWORD: YOUR_MYSQL_ROOT_PASSWORD
+
+  mysql-student:
+    environment:
+      MYSQL_ROOT_PASSWORD: YOUR_MYSQL_ROOT_PASSWORD
+
+  mysql-company:
+    environment:
+      MYSQL_ROOT_PASSWORD: YOUR_MYSQL_ROOT_PASSWORD
+
+  mysql-placement:
+    environment:
+      MYSQL_ROOT_PASSWORD: YOUR_MYSQL_ROOT_PASSWORD
+
+  mysql-notification:
+    environment:
+      MYSQL_ROOT_PASSWORD: YOUR_MYSQL_ROOT_PASSWORD

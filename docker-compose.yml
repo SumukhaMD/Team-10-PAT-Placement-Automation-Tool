@@ -1,0 +1,242 @@
+version: '3.9'
+
+services:
+  # MySQL Database Instances
+  mysql-auth:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: placeit_auth
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql-auth-data:/var/lib/mysql
+    networks:
+      - placeit-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mysql-student:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: placeit_student
+    ports:
+      - "3308:3306"
+    volumes:
+      - mysql-student-data:/var/lib/mysql
+    networks:
+      - placeit-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mysql-company:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: placeit_company
+    ports:
+      - "3309:3306"
+    volumes:
+      - mysql-company-data:/var/lib/mysql
+    networks:
+      - placeit-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mysql-placement:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: placeit_placement
+    ports:
+      - "3310:3306"
+    volumes:
+      - mysql-placement-data:/var/lib/mysql
+    networks:
+      - placeit-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mysql-notification:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: placeit_notification
+    ports:
+      - "3311:3306"
+    volumes:
+      - mysql-notification-data:/var/lib/mysql
+    networks:
+      - placeit-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Eureka Server (Service Discovery)
+  eureka-server:
+    build:
+      context: ./eureka-server
+      dockerfile: Dockerfile
+    ports:
+      - "8761:8761"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      EUREKA_HOSTNAME: eureka-server
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8761/eureka/apps"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    networks:
+      - placeit-network
+
+  # API Gateway
+  api-gateway:
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      EUREKA_HOST: eureka-server
+      JWT_SECRET: ${JWT_SECRET}
+    networks:
+      - placeit-network
+    depends_on:
+      eureka-server:
+        condition: service_healthy
+
+  # Auth Service
+  auth-service:
+    build:
+      context: ./auth-service
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    environment:
+      MYSQL_HOST: mysql-auth
+      MYSQL_USER: root
+      MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      EUREKA_HOST: eureka-server
+      JWT_SECRET: ${JWT_SECRET}
+      GMAIL_USERNAME: ${GMAIL_USERNAME}
+      GMAIL_PASSWORD: ${GMAIL_PASSWORD}
+    networks:
+      - placeit-network
+    depends_on:
+      mysql-auth:
+        condition: service_healthy
+      eureka-server:
+        condition: service_healthy
+
+  # Student Service
+  student-service:
+    build:
+      context: ./student-service
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8082"
+    environment:
+      MYSQL_HOST: mysql-student
+      MYSQL_USER: root
+      MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      EUREKA_HOST: eureka-server
+    volumes:
+      - ./uploads:/app/uploads
+    networks:
+      - placeit-network
+    depends_on:
+      mysql-student:
+        condition: service_healthy
+      eureka-server:
+        condition: service_healthy
+
+  # Company Service
+  company-service:
+    build:
+      context: ./company-service
+      dockerfile: Dockerfile
+    ports:
+      - "8083:8083"
+    environment:
+      MYSQL_HOST: mysql-company
+      MYSQL_USER: root
+      MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      EUREKA_HOST: eureka-server
+    networks:
+      - placeit-network
+    depends_on:
+      mysql-company:
+        condition: service_healthy
+      eureka-server:
+        condition: service_healthy
+
+  # Placement Service
+  placement-service:
+    build:
+      context: ./placement-service
+      dockerfile: Dockerfile
+    ports:
+      - "8084:8084"
+    environment:
+      MYSQL_HOST: mysql-placement
+      MYSQL_USER: root
+      MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      EUREKA_HOST: eureka-server
+    networks:
+      - placeit-network
+    depends_on:
+      mysql-placement:
+        condition: service_healthy
+      eureka-server:
+        condition: service_healthy
+
+  # Notification Service
+  notification-service:
+    build:
+      context: ./notification-service
+      dockerfile: Dockerfile
+    ports:
+      - "8085:8085"
+    environment:
+      MYSQL_HOST: mysql-notification
+      MYSQL_USER: root
+      MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      EUREKA_HOST: eureka-server
+      GMAIL_USERNAME: ${GMAIL_USERNAME}
+      GMAIL_PASSWORD: ${GMAIL_PASSWORD}
+    networks:
+      - placeit-network
+    depends_on:
+      mysql-notification:
+        condition: service_healthy
+      eureka-server:
+        condition: service_healthy
+
+volumes:
+  mysql-auth-data:
+  mysql-student-data:
+  mysql-company-data:
+  mysql-placement-data:
+  mysql-notification-data:
+
+networks:
+  placeit-network:
+    driver: bridge
+
